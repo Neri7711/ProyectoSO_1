@@ -1,0 +1,5 @@
+C:/Users/emanu/OneDrive/Desktop/malware/Ramsomware/build/CMakeFiles/ransomware.dir
+C:/Users/emanu/OneDrive/Desktop/malware/Ramsomware/build/CMakeFiles/run.dir
+C:/Users/emanu/OneDrive/Desktop/malware/Ramsomware/build/CMakeFiles/debug.dir
+C:/Users/emanu/OneDrive/Desktop/malware/Ramsomware/build/CMakeFiles/edit_cache.dir
+C:/Users/emanu/OneDrive/Desktop/malware/Ramsomware/build/CMakeFiles/rebuild_cache.dir

